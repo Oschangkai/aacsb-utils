@@ -3,24 +3,24 @@ import * as database from '@config/database';
 
 export class ReportGenerator {
 
-    private config: sql.config;
-    constructor() {
-      this.config = database.config;
+  private config: sql.config;
+  constructor() {
+    this.config = database.config;
+  }
+
+  public async testConnectAndQuery(): Promise<void> {
+    try {
+      let poolConnection = await sql.connect({...this.config});
+
+      console.log("Reading rows from the Table...");
+      let resultSet = await poolConnection.request().query(`SELECT * FROM [ReportGenerator].[Departments]`);
+
+      console.log(`${resultSet.recordset.length} rows returned.`);
+
+      // close connection only when we're certain application is finished
+      poolConnection.close();
+    } catch (err) {
+      console.error(err.message);
     }
-
-    public async testConnectAndQuery(): Promise<void> {
-      try {
-        let poolConnection = await sql.connect({...this.config});
-
-        console.log("Reading rows from the Table...");
-        let resultSet = await poolConnection.request().query(`SELECT * FROM [ReportGenerator].[Departments]`);
-
-        console.log(`${resultSet.recordset.length} rows returned.`);
-
-        // close connection only when we're certain application is finished
-        poolConnection.close();
-      } catch (err) {
-        console.error(err.message);
-      }
   }
 }
