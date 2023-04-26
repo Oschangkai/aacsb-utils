@@ -6,10 +6,9 @@ export class ReportGenerator {
     private config: sql.config;
     constructor() {
       this.config = database.config;
-      console.log(JSON.stringify(this.config));
     }
 
-    public async connectAndQuery(): Promise<void> {
+    public async testConnectAndQuery(): Promise<void> {
       try {
         let poolConnection = await sql.connect({...this.config});
 
