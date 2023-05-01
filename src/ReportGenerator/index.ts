@@ -26,3 +26,4 @@ export class ReportGenerator {
 }
 
 export { FillCourseDiscipline } from './FillCourseDiscipline';
+export { FillTeacherData } from './FillTeacherData';

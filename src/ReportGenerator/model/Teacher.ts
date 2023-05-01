@@ -31,7 +31,7 @@ export class Teacher extends AuditableEntity implements BaseEntity
 
     public Department?: Department;
 
-    public Responsibilities: Responsibility[];
+    public Responsibilities: string;
 
     public Email?: string;
 
