@@ -1,0 +1,12 @@
+export { AuditableEntity } from './AuditableEntity';
+export { BaseEntity } from './BaseEntity';
+export { Course } from './Course';
+export { CourseTeacher } from './CourseTeacher';
+export { Department } from './Department';
+export { Discipline } from './Discipline';
+export { ImportSignature } from './ImportSignature';
+export { Professional } from './Professional';
+export { Qualification } from './Qualification';
+import { Research } from './Research';
+import { Responsibility } from './Responsibility';
+export { Teacher } from './Teacher';

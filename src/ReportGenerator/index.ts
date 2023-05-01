@@ -24,3 +24,5 @@ export class ReportGenerator {
     }
   }
 }
+
+export { FillCourseDiscipline } from './FillCourseDiscipline';

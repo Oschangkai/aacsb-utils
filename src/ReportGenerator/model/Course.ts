@@ -32,3 +32,5 @@ export class Course extends AuditableEntity implements BaseEntity
 
     public Teachers?: CourseTeacher[];
 }
+
+// export type CourseKey = Array<keyof Course>;
