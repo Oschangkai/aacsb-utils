@@ -31,25 +31,31 @@ export class FillCourseDiscipline {
       let poolConnection = await this.establishDatabaseConnection();
 
       let coursesSet = await poolConnection.request()
-        .query(`SELECT * FROM [ReportGenerator].[Courses] WHERE ([Semester] = '1101') OR ([Semester] = '1102') ORDER BY [Code]`);
+        .query(`SELECT * FROM [ReportGenerator].[Courses] ORDER BY [Code]`);
       let courses: Course[] = coursesSet.recordset;
 
       let disciplinesSet = await poolConnection.request()
         .query(`SELECT [Id], [Code] FROM [ReportGenerator].[Discipline]`);
       let disciplines: Discipline[] = disciplinesSet.recordset;
       
+      let skip = 0;
       for (let i = 0; i < courses.length; i++) {
           let course = data.find(d => d.Code === courses[i].Code);
-          if (course === undefined) continue;
+          if (course === undefined) {
+            console.log(`Skip ${courses[i].Code}`)
+            skip++;
+            continue;
+          }
           let discipline = disciplines.find(d => d.Code == course.DisciplineCode.toString());
           if (discipline === undefined) continue;
 
           console.log(`Update Course ${courses[i].Code} with Discipline ${course.DisciplineCode} and DisciplineId ${discipline.Id}`);
           await poolConnection.request()
             .query(`UPDATE [ReportGenerator].[Courses] SET [DisciplineId] = '${discipline.Id}' WHERE [Code] = '${courses[i].Code}'`);
-      }
+          }
       
       this.closeDatabaseConnection(poolConnection);
+      console.log(`Skipped ${skip} courses, affected ${courses.length - skip} rows.`);
     } catch (err) {
       console.error(err.message);
     }

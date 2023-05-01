@@ -38,10 +38,11 @@ export class FillTeacherData {
         .query(`SELECT [Id], [EnglishName] FROM [ReportGenerator].[Departments]`))
         .recordset;
 
-
+      let skip = 0;
       for (let i = 0; i < teachers.length; i++) {
         let teacher = data.find(d => d.Name === teachers[i].Name);
         if (teacher === undefined) {
+          skip++;
           console.log(`Skip ${teachers[i].Name}`);
           continue;
         }
@@ -87,6 +88,7 @@ export class FillTeacherData {
       }
       
       this.closeDatabaseConnection(poolConnection);
+      console.log(`Skipped ${skip} teachers, affected ${teachers.length - skip} rows.`);
     } catch (err) {
       console.error(err.message);
     }
