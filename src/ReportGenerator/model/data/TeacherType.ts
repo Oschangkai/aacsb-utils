@@ -5,5 +5,5 @@ export class TeacherType {
 
     public DepartmentAbbr: string;
 
-    public WorkType: string;
+    public WorkType: 'Full Time' | 'Part Time' | 'Contractual';
 }
