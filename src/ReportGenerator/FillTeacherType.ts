@@ -65,7 +65,7 @@ export class FillTeacherType {
           if (department !== undefined || !!teacher.Qualification) query += `, `;
           query += `[WorkType] = '${teacher.WorkType}'`;
           if (teacher.WorkType.toLocaleLowerCase() == "part time") {
-            query += `, [WorkTypeAbbr] = 'F'`;
+            query += `, [WorkTypeAbbr] = 'S'`;
           } else if (teacher.WorkType.toLocaleLowerCase() == 'contractual') {
             query += `, [WorkTypeAbbr] = 'C'`;
           } else if (teacher.WorkType.toLocaleLowerCase() == 'full time') {
