@@ -15,7 +15,7 @@ export class Teacher extends AuditableEntity implements BaseEntity
 
     public NameInNtustCourse?: string;
 
-    public Qualification?: Qualification;
+    public QualificationId?: string;
 
     public WorkType?: string;
 
@@ -29,7 +29,7 @@ export class Teacher extends AuditableEntity implements BaseEntity
 
     public DegreeYear?: number;
 
-    public Department?: Department;
+    public DepartmentId?: string;
 
     public Responsibilities: string;
 
