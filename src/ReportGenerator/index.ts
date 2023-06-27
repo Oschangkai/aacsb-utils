@@ -30,3 +30,5 @@ export { FillCourseDiscipline } from './FillCourseDiscipline';
 export { FillTeacherData } from './FillTeacherData';
 export { FillTeacherType } from './FillTeacherType';
 export { FillTeacherQualification } from './FillTeacherQualification';
+export { FillTeachersV2 } from './FillTeachersV2';
+export { FillTeachers } from './FillTeachers';

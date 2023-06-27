@@ -16,7 +16,7 @@ export class FillCourseDiscipline {
 
   private loadDataFromDisk(): CourseDiscipline[] {
     try {
-    let data = fs.readFileSync('./data/ReportGenerator/110course_discipline.json', 'utf8');
+    let data = fs.readFileSync('./data/ReportGenerator/course_discipline.json', 'utf8');
       return JSON.parse(data);
     } catch(e) {
       return [];
