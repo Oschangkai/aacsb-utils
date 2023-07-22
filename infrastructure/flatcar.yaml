@@ -1,0 +1,47 @@
+variant: flatcar
+version: 1.0.0
+passwd:
+  users:
+    - name: idsl
+      ssh_authorized_keys:
+        - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEzmIi/sJEqrhWzTJlUVujl2YDxhjegw7p4ZdPZ1WLD4
+      groups: [ sudo, docker ]
+systemd:
+  units:
+    # Ensure docker starts automatically instead of being only socket-activated
+    - name: docker.service
+      enabled: true
+storage:
+  files:
+    - path: /etc/systemd/network/00-vmware.network
+      contents:
+        inline: |
+          [Match]
+          Name=ens192
+          [Network]
+          DHCP=no
+          DNS=168.95.1.1
+          [Address]
+          Address=192.168.67.133/23
+          [Route]
+          Destination=0.0.0.0/0
+          Gateway=192.168.67.254
+    - path: /etc/hostname
+      mode: 0644
+      contents:
+        inline: ntust-som
+    - path: /etc/userdb/idsl:sudo.membership
+      contents:
+        inline: " "
+    - path: /etc/userdb/idsl:docker.membership
+      contents:
+        inline: " "
+    - path: /opt/bin/docker-compose
+      contents:
+        source: https://github.com/docker/compose/releases/download/v2.20.2/docker-compose-linux-x86_64
+        verification:
+          hash: sha256-b9385dabb7931636a3afc0aee94625ebff3bb29584493a87804afb6ebaf2d916
+      mode: 0755
+# cat flatcar.yaml | docker run --rm -i quay.io/coreos/butane:release | base64
+# guestinfo.ignition.config.data: 
+# guestinfo.ignition.config.data.encoding: base64
