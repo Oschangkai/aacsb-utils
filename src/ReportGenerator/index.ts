@@ -1,6 +1,5 @@
 import * as sql from 'mssql';
 import * as database from '@config/database';
-import { FillTeacherType } from './FillTeacherType';
 
 export class ReportGenerator {
 
@@ -32,3 +31,4 @@ export { FillTeacherType } from './FillTeacherType';
 export { FillTeacherQualification } from './FillTeacherQualification';
 export { FillTeachersV2 } from './FillTeachersV2';
 export { FillTeachers } from './FillTeachers';
+export { FillTeacherJournal } from './FillTeacherJournal';
