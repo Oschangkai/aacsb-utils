@@ -1,4 +1,4 @@
-import { ReportGenerator, FillCourseDiscipline, FillTeacherData, FillTeacherType, FillTeacherQualification, FillTeachers, FillTeachersV2, FillTeacherJournal, FillTeacherJournal2, FillTeacherPresentation } from '@/ReportGenerator';
+import { ReportGenerator, FillCourseDiscipline, FillTeacherData, FillTeacherType, FillTeacherQualification, FillTeachers, FillTeachersV2, FillTeacherJournal, FillTeacherJournal2, FillTeacherPresentation, FillTeacherProceeding } from '@/ReportGenerator';
 
 // let reportGenerator = new ReportGenerator().testConnectAndQuery();
 // let fillCourseDiscipline = new FillCourseDiscipline().Run();
@@ -9,4 +9,5 @@ import { ReportGenerator, FillCourseDiscipline, FillTeacherData, FillTeacherType
 // let fillTeachersV2 = new FillTeachersV2().Run();
 // let fillTeacherJournal = new FillTeacherJournal().Run();
 // let fillTeacherJournal2 = new FillTeacherJournal2().Run();
-let fillTeacherPresentation = new FillTeacherPresentation().Run();
+// let fillTeacherPresentation = new FillTeacherPresentation().Run();
+let fillTeacherProceeding = new FillTeacherProceeding().Run();
