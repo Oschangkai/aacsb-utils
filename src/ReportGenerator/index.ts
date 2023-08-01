@@ -33,3 +33,4 @@ export { FillTeachersV2 } from './FillTeachersV2';
 export { FillTeachers } from './FillTeachers';
 export { FillTeacherJournal } from './FillTeacherJournal';
 export { FillTeacherJournal2 } from './FillTeacherJournal2';
+export { FillTeacherPresentation } from './FillTeacherPresentation';
