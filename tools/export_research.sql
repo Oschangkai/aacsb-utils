@@ -15,5 +15,5 @@ GROUP BY T.Name, Research.Title,
   Seminar, City, Country, Issue,
   JournalsClass, JournalsName, JournalsStatus, JournalsType,
   PageStart, PageEnd, Project, Publication, Volume,
-  Year, YearEnd, YearStart, Month, MonthEnd, MonthStart, DayEnd, DayStart, FullText
-ORDER BY COALESCE(Year, YearEnd, YearStart) DESC, COALESCE(Month, MonthEnd, MonthStart) DESC
+  Year, YearEnd, YearStart, Month, MonthEnd, MonthStart, DayEnd, DayStart, FullText, Research.Id
+ORDER BY TeacherName, COALESCE(Year, YearEnd, YearStart) DESC, COALESCE(Month, MonthEnd, MonthStart) DESC
